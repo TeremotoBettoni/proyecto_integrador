@@ -1,13 +1,13 @@
 package yoSe20221108;
 
-public class valoracion {
+public class Valoracion {
 	private int megusta;
 
-	public valoracion() {
+	public Valoracion() {
 		super();
 	}
 
-	public valoracion(int megusta) {
+	public Valoracion(int megusta) {
 		super();
 		this.megusta = megusta;
 	}
