@@ -2,7 +2,7 @@ package yoSe20221108;
 
 public class Usuario {
 	// Creando los atributos
-	
+	// cambiando algo
 	private String nombre;
 	private String apellido;
 	private String email;
