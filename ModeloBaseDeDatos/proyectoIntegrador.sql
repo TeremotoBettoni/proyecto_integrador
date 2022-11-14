@@ -107,3 +107,4 @@ CREATE TABLE proyyose.imagen (
 -- vinculamos los FK
 alter table imagen add foreign key(idAutor) references usuario(userId);
 ---------------------------------------------------------------------------------
+-- Haciendo prueba para nueva rama
