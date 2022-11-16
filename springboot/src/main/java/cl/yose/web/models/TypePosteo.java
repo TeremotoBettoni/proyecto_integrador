@@ -10,67 +10,80 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="valoraciones")
+@Table(name = "typeposteos")
+public class TypePosteo {
 
-public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long IdTipo;
 	
-	private Boolean meGusta;
 	
-	private Long usuarioId;
+	private String tipo;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date updatedAt;	
+	private Date updatedAt;
 
+	public TypePosteo() {
+		super();
+	}
 
-		public Long getId() {
-		return id;
+	public TypePosteo(Long idTipo, Date createdAt, Date updatedAt) {
+		super();
+		IdTipo = idTipo;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public Long getIdTipo() {
+		return IdTipo;
 	}
-	public Boolean getMeGusta() {
-		return meGusta;
+
+	public void setIdTipo(Long idTipo) {
+		IdTipo = idTipo;
 	}
-	public void setMeGusta(Boolean meGusta) {
-		this.meGusta = meGusta;
-	}
-	public Long getUsuarioId() {
-		return usuarioId;
-	}
-	public void setUsuarioId(Long usuarioId) {
-		this.usuarioId = usuarioId;
-	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
+
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
+
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-		// atributos de control
-		@PrePersist
-		protected void onCreate(){
-			this.createdAt = new Date();
-			}
-		@PreUpdate
-		protected void onUpdate(){
-			this.updatedAt = new Date();
-			}
+	
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	// atributos de control
+	@PrePersist
+	protected void onCreate(){
+		this.createdAt = new Date();
+		}
+	@PreUpdate
+	protected void onUpdate(){
+		this.updatedAt = new Date();
+		}
 	
 }
