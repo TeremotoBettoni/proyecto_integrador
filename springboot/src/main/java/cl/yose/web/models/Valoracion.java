@@ -19,19 +19,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
-	private int valoracionId;
-	
-	private Boolean meGusta;
-	
-=======
 	private Long id;
 	
 	private Boolean meGusta;
 	
 	private Long usuarioId;
 	
->>>>>>> IvanZ
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -39,49 +32,11 @@ public class Valoracion {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;	
 
-<<<<<<< HEAD
+
 	public Valoracion() {
 		super();
 	}
 
-	public Valoracion(int valoracionId, Boolean meGusta) {
-		super();
-		this.valoracionId = valoracionId;
-		this.meGusta = meGusta;
-	}
-
-	public int getValoracionId() {
-		return valoracionId;
-	}
-
-	public void setValoracionId(int valoracionId) {
-		this.valoracionId = valoracionId;
-	}
-
-	public Boolean getMeGusta() {
-		return meGusta;
-	}
-
-	public void setMeGusta(Boolean meGusta) {
-		this.meGusta = meGusta;
-	}
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-=======
 
 		public Long getId() {
 		return id;
@@ -113,9 +68,9 @@ public class Valoracion {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
->>>>>>> IvanZ
-		// atributos de control
-		@PrePersist
+
+	// atributos de control
+	@PrePersist
 		protected void onCreate(){
 			this.createdAt = new Date();
 			}
@@ -123,14 +78,11 @@ public class Valoracion {
 		protected void onUpdate(){
 			this.updatedAt = new Date();
 			}
-<<<<<<< HEAD
 
 		@Override
 		public String toString() {
 			return "Valoracion [valoracionId=" + valoracionId + ", meGusta=" + meGusta + ", createdAt=" + createdAt
 					+ ", updatedAt=" + updatedAt + "]";
 		}
-=======
->>>>>>> IvanZ
 	
 }
