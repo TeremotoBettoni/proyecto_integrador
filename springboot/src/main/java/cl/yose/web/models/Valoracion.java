@@ -34,10 +34,20 @@ public class Valoracion {
 		super();
 	}
 
+
 	public Valoracion(int valoracionId, Boolean meGusta) {
 		super();
 		this.valoracionId = valoracionId;
 		this.meGusta = meGusta;
+
+	public Valoracion() {
+		super();
+	}
+
+
+		public Long getId() {
+		return id;
+
 	}
 
 	public int getValoracionId() {
@@ -71,20 +81,18 @@ public class Valoracion {
 		this.updatedAt = updatedAt;
 	}
 
-		// atributos de control
-		@PrePersist
-		protected void onCreate(){
-			this.createdAt = new Date();
-			}
-		@PreUpdate
-		protected void onUpdate(){
-			this.updatedAt = new Date();
-			}
 
-		@Override
-		public String toString() {
-			return "Valoracion [valoracionId=" + valoracionId + ", meGusta=" + meGusta + ", createdAt=" + createdAt
-					+ ", updatedAt=" + updatedAt + "]";
+	// atributos de control
+	@PrePersist
+	protected void onCreate(){
+		this.createdAt = new Date();
 		}
+	@PreUpdate
+	protected void onUpdate(){
+		this.updatedAt = new Date();
+		}
+
+
+
 	
 }
