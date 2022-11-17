@@ -10,62 +10,61 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-<<<<<<< HEAD
-=======
-import javax.validation.constraints.NotNull;
->>>>>>> IvanZ
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "typeposteos")
-public class TypePosteo {
+@Table(name="valoraciones")
 
+public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long IdTipo;
+	private Long id;
 	
+	private Boolean meGusta;
 	
-	private String tipo;
+	private Long usuarioId;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date updatedAt;
+	private Date updatedAt;	
 
-	public TypePosteo() {
+
+	public Valoracion() {
 		super();
 	}
 
-	public TypePosteo(Long idTipo, Date createdAt, Date updatedAt) {
-		super();
-		IdTipo = idTipo;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	}
 
-	public Long getIdTipo() {
-		return IdTipo;
+		public Long getId() {
+		return id;
 	}
-
-	public void setIdTipo(Long idTipo) {
-		IdTipo = idTipo;
+	public void setId(Long id) {
+		this.id = id;
 	}
-
+	public Boolean getMeGusta() {
+		return meGusta;
+	}
+	public void setMeGusta(Boolean meGusta) {
+		this.meGusta = meGusta;
+	}
+	public Long getUsuarioId() {
+		return usuarioId;
+	}
+	public void setUsuarioId(Long usuarioId) {
+		this.usuarioId = usuarioId;
+	}
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
@@ -79,5 +78,7 @@ public class TypePosteo {
 	protected void onUpdate(){
 		this.updatedAt = new Date();
 		}
+
+
 	
 }

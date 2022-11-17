@@ -20,41 +20,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Comentario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
-	private Long idComentario;
-
-	@NotNull
-	@Size(min = 1, max = 240, message = "Excedes el limite de carácteres")
-	private String texto;
-	
-=======
 	private Long id;
 
 	@NotNull
 	@Size(min= 0, max = 240, message = "Excedes el limite de carácteres")
 	private String texto;
 	
-	private Long usuarioId;
-	
-	public Comentario() {
-		super();
-	}
-
-	public Comentario(Long id,
-			@NotNull @Size(min = 0, max = 240, message = "Excedes el limite de carácteres") String texto,
-			Long usuarioId, Date createdAt, Date updatedAt) {
-		super();
-		this.id = id;
-		this.texto = texto;
-		this.usuarioId = usuarioId;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	}
-
->>>>>>> IvanZ
-	// --------------------------------------------------------
-	//REGISTRO Y MODIFICACION DE FECHAS
-	// para la incersion de un registro
 	@Column(updatable = false) // una vez insertado el dato, no se puede modificar
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
@@ -63,22 +34,21 @@ public class Comentario {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 	
-
-	// Atributos de control
-	// agregar la fecha antes de insertar
-	@PrePersist
-	protected void onCreate() {
-		this.createdAt = new Date();
+	
+	public Comentario() {
+		super();
 	}
-
-	// antes de actualizar un dato, le agrega la fecha.
-	@PreUpdate
-	protected void onUpdate() {
-		this.updatedAt = new Date();
+	
+	public Comentario(Long id,
+			@NotNull @Size(min = 0, max = 240, message = "Excedes el limite de carácteres") String texto,
+			Date createdAt, Date updatedAt) {
+		super();
+		this.id = id;
+		this.texto = texto;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
-<<<<<<< HEAD
-=======
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -93,14 +63,6 @@ public class Comentario {
 
 	public void setTexto(String texto) {
 		this.texto = texto;
-	}
-
-	public Long getUsuarioId() {
-		return usuarioId;
-	}
-
-	public void setUsuarioId(Long usuarioId) {
-		this.usuarioId = usuarioId;
 	}
 
 	public Date getCreatedAt() {
@@ -118,7 +80,17 @@ public class Comentario {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
-	
->>>>>>> IvanZ
+
+	// Atributos de control
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+
+	// antes de actualizar un dato, le agrega la fecha.
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
+
 }
