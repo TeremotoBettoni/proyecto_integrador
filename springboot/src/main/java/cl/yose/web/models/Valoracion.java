@@ -19,7 +19,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int valoracionId;
+	private Long Id;
 	
 	private Boolean meGusta;
 	
@@ -30,32 +30,23 @@ public class Valoracion {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;	
 
-	public Valoracion() {
+	public Valoracion(Long valoracionId, Boolean meGusta) {
 		super();
-	}
-
-
-	public Valoracion(int valoracionId, Boolean meGusta) {
-		super();
-		this.valoracionId = valoracionId;
+		this.Id = Id;
 		this.meGusta = meGusta;
+	}
 
 	public Valoracion() {
 		super();
 	}
 
 
-		public Long getId() {
-		return id;
-
+	public Long getId() {
+		return Id;
 	}
 
-	public int getValoracionId() {
-		return valoracionId;
-	}
-
-	public void setValoracionId(int valoracionId) {
-		this.valoracionId = valoracionId;
+	public void setId(Long id) {
+		Id = id;
 	}
 
 	public Boolean getMeGusta() {
@@ -65,22 +56,6 @@ public class Valoracion {
 	public void setMeGusta(Boolean meGusta) {
 		this.meGusta = meGusta;
 	}
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
 
 	// atributos de control
 	@PrePersist
@@ -91,8 +66,5 @@ public class Valoracion {
 	protected void onUpdate(){
 		this.updatedAt = new Date();
 		}
-
-
-
 	
 }

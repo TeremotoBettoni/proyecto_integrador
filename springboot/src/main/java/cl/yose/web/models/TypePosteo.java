@@ -19,7 +19,7 @@ public class TypePosteo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long IdTipo;
+	private Long Id;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -32,47 +32,14 @@ public class TypePosteo {
 		super();
 	}
 
-	public TypePosteo(Long idTipo, Date createdAt, Date updatedAt) {
-		super();
-		IdTipo = idTipo;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
+
+	public Long getId() {
+		return Id;
 	}
 
-	public Long getIdTipo() {
-		return IdTipo;
-	}
 
-	public void setIdTipo(Long idTipo) {
-		IdTipo = idTipo;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-
-	}	
-	
-
-	
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setId(Long id) {
+		Id = id;
 	}
 
 
