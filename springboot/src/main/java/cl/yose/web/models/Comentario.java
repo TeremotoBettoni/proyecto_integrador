@@ -20,12 +20,38 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Comentario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
 	private Long idComentario;
 
 	@NotNull
 	@Size(min = 1, max = 240, message = "Excedes el limite de carácteres")
 	private String texto;
 	
+=======
+	private Long id;
+
+	@NotNull
+	@Size(min= 0, max = 240, message = "Excedes el limite de carácteres")
+	private String texto;
+	
+	private Long usuarioId;
+	
+	public Comentario() {
+		super();
+	}
+
+	public Comentario(Long id,
+			@NotNull @Size(min = 0, max = 240, message = "Excedes el limite de carácteres") String texto,
+			Long usuarioId, Date createdAt, Date updatedAt) {
+		super();
+		this.id = id;
+		this.texto = texto;
+		this.usuarioId = usuarioId;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+>>>>>>> IvanZ
 	// --------------------------------------------------------
 	//REGISTRO Y MODIFICACION DE FECHAS
 	// para la incersion de un registro
@@ -50,4 +76,49 @@ public class Comentario {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+<<<<<<< HEAD
+=======
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
+	public Long getUsuarioId() {
+		return usuarioId;
+	}
+
+	public void setUsuarioId(Long usuarioId) {
+		this.usuarioId = usuarioId;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	
+	
+>>>>>>> IvanZ
 }

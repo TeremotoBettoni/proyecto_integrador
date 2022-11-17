@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+<<<<<<< HEAD
+=======
+import javax.validation.constraints.NotNull;
+>>>>>>> IvanZ
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -21,6 +25,12 @@ public class TypePosteo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long IdTipo;
 	
+<<<<<<< HEAD
+=======
+	
+	private String tipo;
+	
+>>>>>>> IvanZ
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -61,8 +71,22 @@ public class TypePosteo {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+<<<<<<< HEAD
 	}	
 	
+=======
+	}
+	
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+>>>>>>> IvanZ
 	// atributos de control
 	@PrePersist
 	protected void onCreate(){
