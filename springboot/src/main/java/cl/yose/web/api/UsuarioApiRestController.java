@@ -15,7 +15,7 @@ public class UsuarioApiRestController {
 	@Autowired
 	private UsuarioServiceImpl usuarioServiceImpl;
 	
-	@RequestMapping("guardar/usuario")
+	@RequestMapping("/guardar/usuario")
 	public Usuario guardarUsuario(@RequestBody Usuario usuario) {
 			
 			// http://localhost:8080/guardar/usuario

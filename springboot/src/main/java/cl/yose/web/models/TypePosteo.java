@@ -21,9 +21,6 @@ public class TypePosteo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long IdTipo;
 	
-	
-	private String tipo;
-	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -64,17 +61,8 @@ public class TypePosteo {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
-	}
+	}	
 	
-	
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
 	// atributos de control
 	@PrePersist
 	protected void onCreate(){
