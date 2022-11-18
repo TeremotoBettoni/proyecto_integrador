@@ -19,11 +19,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	private Boolean meGusta;
-	
-	private Long usuarioId;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -32,45 +30,34 @@ public class Valoracion {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;	
 
-
 	public Valoracion() {
 		super();
 	}
 
+	public Valoracion(int valoracionId, Boolean meGusta) {
+		super();
+		this.id = id;
+		this.meGusta = meGusta;
+	}
 
-		public Long getId() {
+		public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+
+	public void setId(int id) {
 		this.id = id;
 	}
+
 	public Boolean getMeGusta() {
 		return meGusta;
 	}
+
 	public void setMeGusta(Boolean meGusta) {
 		this.meGusta = meGusta;
 	}
-	public Long getUsuarioId() {
-		return usuarioId;
-	}
-	public void setUsuarioId(Long usuarioId) {
-		this.usuarioId = usuarioId;
-	}
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
-	// atributos de control
-	@PrePersist
+		// atributos de control
+		@PrePersist
 		protected void onCreate(){
 			this.createdAt = new Date();
 			}
@@ -78,11 +65,5 @@ public class Valoracion {
 		protected void onUpdate(){
 			this.updatedAt = new Date();
 			}
-
-		@Override
-		public String toString() {
-			return "Valoracion [valoracionId=" + valoracionId + ", meGusta=" + meGusta + ", createdAt=" + createdAt
-					+ ", updatedAt=" + updatedAt + "]";
-		}
 	
 }

@@ -9,17 +9,16 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>cl.yose</groupId>
-	<artifactId>Yose</artifactId>
+	<artifactId>yose</artifactId>
 	<version>1</version>
 	<packaging>war</packaging>
 	<name>yose</name>
-	<description>Proyecto integrador de generation Grupo 4</description>
+	<description>Proyecto Integrador de generation Grupo 4</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-	
-		<dependency>
+					<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -76,8 +75,8 @@
 		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>-->
-		
+		</dependency>
+		-->
 	</dependencies>
 
 	<build>

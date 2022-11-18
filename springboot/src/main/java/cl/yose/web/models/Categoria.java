@@ -20,11 +20,26 @@ public class Categoria {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long categoriaId;
+	private long id;
 	
 	@NotNull
 	private String detalleCategoria;
 	
+	public Categoria() {
+		super();
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getDetalleCategoria() {
+		return detalleCategoria;
+	}
+	public void setDetalleCategoria(String detalleCategoria) {
+		this.detalleCategoria = detalleCategoria;
+	}
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -42,6 +57,5 @@ public class Categoria {
 	protected void onUpdate(){
 		this.updatedAt = new Date();
 		}
-
 
 }

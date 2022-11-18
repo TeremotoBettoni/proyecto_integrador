@@ -20,21 +20,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Comentario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
-	private Long idComentario;
-
-	@NotNull
-	@Size(min = 1, max = 240, message = "Excedes el limite de carácteres")
-	private String texto;
-	
-=======
 	private Long id;
 
 	@NotNull
 	@Size(min= 0, max = 240, message = "Excedes el limite de carácteres")
 	private String texto;
 	
-	private Long usuarioId;
+	private Long usuario_id;
 	
 	public Comentario() {
 		super();
@@ -46,12 +38,11 @@ public class Comentario {
 		super();
 		this.id = id;
 		this.texto = texto;
-		this.usuarioId = usuarioId;
+		this.usuario_id = usuario_id;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 	}
 
->>>>>>> IvanZ
 	// --------------------------------------------------------
 	//REGISTRO Y MODIFICACION DE FECHAS
 	// para la incersion de un registro
@@ -76,8 +67,6 @@ public class Comentario {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
-<<<<<<< HEAD
-=======
 
 	public Long getId() {
 		return id;
@@ -95,12 +84,12 @@ public class Comentario {
 		this.texto = texto;
 	}
 
-	public Long getUsuarioId() {
-		return usuarioId;
+	public Long getUsuario_id() {
+		return usuario_id;
 	}
 
-	public void setUsuarioId(Long usuarioId) {
-		this.usuarioId = usuarioId;
+	public void setUsuarioId(Long usuario_id) {
+		this.usuario_id = usuario_id;
 	}
 
 	public Date getCreatedAt() {
@@ -120,5 +109,4 @@ public class Comentario {
 	}
 	
 	
->>>>>>> IvanZ
 }
