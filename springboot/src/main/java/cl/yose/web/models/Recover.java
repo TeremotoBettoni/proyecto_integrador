@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -15,13 +18,25 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "recovers")
 public class Recover {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
-	private Long idRecover;
+	private Long id;
 
 	@NotNull
 	@Size(min = 8, max = 30, message = "Error en el largo contraseña")
@@ -34,63 +49,11 @@ public class Recover {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;	
 	
+	@JsonIgnore
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 	
-	public Recover() {
-		super();
-	}
-	
-	
-	public Recover(Long idRecover,
-			@NotNull @Size(min = 8, max = 30, message = "Error en el largo contraseña") String code, Date createdAt,
-			Date updatedAt) {
-		super();
-		this.idRecover = idRecover;
-		this.code = code;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	}
-	
-
-	public Long getIdRecover() {
-		return idRecover;
-	}
-
-
-	public void setIdRecover(Long idRecover) {
-		this.idRecover = idRecover;
-	}
-
-
-	public String getCode() {
-		return code;
-	}
-
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-
 	// atributos de control
 	@PrePersist
 	protected void onCreate(){
@@ -100,6 +63,5 @@ public class Recover {
 	protected void onUpdate(){
 		this.updatedAt = new Date();
 		}
-	
 
 }
