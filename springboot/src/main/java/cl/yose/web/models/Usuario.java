@@ -20,17 +20,17 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name="usuarios")
 public class Usuario {
@@ -42,9 +42,10 @@ public class Usuario {
 	private String nombre;
 	@NotNull
 	private String apellido;
-	@NotNull
+	@Column
 	private String email;
-	@NotNull
+	@Column
+    @JsonIgnore
 	private String contraseña;
 	@Transient
 	private String contraseña2;
