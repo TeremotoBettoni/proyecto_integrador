@@ -4,54 +4,24 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@ToString
 @Entity
 @Table(name="valoraciones")
 
 public class Valoracion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long Id;
 	
 	private Boolean meGusta;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="usuario_id")
-	private Usuario usuario;
-	
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="posteo_id")
-	private Posteo posteo;
-	
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="comentario_id")
-	private Comentario comentario;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -59,6 +29,33 @@ public class Valoracion {
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;	
+
+	public Valoracion(Long valoracionId, Boolean meGusta) {
+		super();
+		this.Id = Id;
+		this.meGusta = meGusta;
+	}
+
+	public Valoracion() {
+		super();
+	}
+
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public Boolean getMeGusta() {
+		return meGusta;
+	}
+
+	public void setMeGusta(Boolean meGusta) {
+		this.meGusta = meGusta;
+	}
 
 	// atributos de control
 	@PrePersist
