@@ -31,6 +31,7 @@ public class PosteoServiceImpl implements PosteoService {
 
 		existe = posteoRepository.existsById(id);
 		if (existe) {
+
 			return "Publicacion no eliminada";
 		}
 
@@ -39,14 +40,17 @@ public class PosteoServiceImpl implements PosteoService {
 
 	@Override
 	public String actualizarPosteo(Posteo posteo) {
+
 		Boolean existe = posteoRepository.existsById(posteo.getId());
 		// validion si existe en base de datos
 		if (existe) {
 			posteoRepository.save(posteo);
+
 			return "Publicacion actualizada con exito";
 		}
 
 		return "Publicacion no actualizada";
+
 	}
 	
 	@Override

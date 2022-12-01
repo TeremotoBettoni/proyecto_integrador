@@ -10,6 +10,7 @@ import cl.yose.web.repositories.ValoracionComentarioRepository;
 
 @Service
 public class ValoracionComentarioServiceImpl implements ValoracionComentarioServices{
+
 	
 	@Autowired
 	public ValoracionComentarioRepository valoracionComentarioRepository;

@@ -51,6 +51,7 @@ public class UsuarioServiceImpl implements UsuarioServices {
 
 	@Override
 	public String actualizarUsuario(Usuario usuario) {
+
 		Boolean existe = usuarioRepository.existsById(usuario.getId());
 		// validion si existe en base de datos
 		if (existe) {
@@ -60,6 +61,7 @@ public class UsuarioServiceImpl implements UsuarioServices {
 
 		return "Usuario no actualizado";
 	}
+
 
 	@Override
 	public Usuario obtenerDatosUsuario(Long id) {
@@ -77,5 +79,6 @@ public class UsuarioServiceImpl implements UsuarioServices {
 		
 		return usuarioRepository.findAll();
 	}
+
 	
 }

@@ -11,6 +11,7 @@ public interface UsuarioServices {
 		//public Usuario guardarUsuario(Usuario usuario);
 		public String eliminarUsuario(Long id);
 		public String actualizarUsuario(Usuario usuario);
+
 		public Usuario obtenerDatosUsuario(Long id);
 		public List<Usuario> listaUsuarios();
 }

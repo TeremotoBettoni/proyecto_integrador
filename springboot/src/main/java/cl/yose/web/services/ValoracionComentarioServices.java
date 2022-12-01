@@ -1,7 +1,6 @@
 package cl.yose.web.services;
 
 import java.util.List;
-
 import cl.yose.web.models.Usuario;
 import cl.yose.web.models.ValoracionComentario;
 

@@ -1,7 +1,9 @@
 package cl.yose.web.api;
 
 import java.util.List;
+
 import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +18,7 @@ import cl.yose.web.services.TypePosteoServiceImpl;
 
 @RestController
 public class TypePosteoApiRestController {
-	
+
 	@Autowired
 	private TypePosteoServiceImpl typePosteoServiceImpl;
 
@@ -25,20 +27,21 @@ public class TypePosteoApiRestController {
 	public TypePosteo guardarTypePosteo(@RequestBody TypePosteo tipeposteo) {
 		return typePosteoServiceImpl.guardarTypePosteo(tipeposteo);
 	}
-	
+
 	// http://localhost:8080/obtener/tipos
-		@RequestMapping("/obtener/tipos")
-		public TypePosteo obtenerTypePosteo(@RequestParam(value = "id", required = true) Long id) {
-			
-			return typePosteoServiceImpl.obtenerDatosTypePosteo(id);
-		}
-		
-		/****************************************************************************/
-		// listar todos los usuarios
-		
-		// http://localhost:8080/listar/usuario
-		@GetMapping("/listar/tipos")
-		public List<TypePosteo> listaTypePosteo(){
-			return typePosteoServiceImpl.listaTypePosteo();
-		}
+	@RequestMapping("/obtener/tipos")
+	public TypePosteo obtenerTypePosteo(@RequestParam(value = "id", required = true) Long id) {
+
+		return typePosteoServiceImpl.obtenerDatosTypePosteo(id);
+	}
+
+	/****************************************************************************/
+	// listar todos los usuarios
+
+	// http://localhost:8080/listar/usuario
+	@GetMapping("/listar/tipos")
+	public List<TypePosteo> listaTypePosteo() {
+		return typePosteoServiceImpl.listaTypePosteo();
+	}
+
 }
