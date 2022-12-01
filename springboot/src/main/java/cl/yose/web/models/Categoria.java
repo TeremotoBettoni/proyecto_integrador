@@ -60,6 +60,7 @@ public class Categoria {
 		}
 	
 	//keo loco
+	//aprendiendo con gatitos
 
 }
 
