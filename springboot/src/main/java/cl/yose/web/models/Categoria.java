@@ -58,5 +58,8 @@ public class Categoria {
 	protected void onUpdate(){
 		this.updatedAt = new Date();
 		}
+	
+	//keo loco
 
 }
+
