@@ -47,7 +47,7 @@ public class PosteoApiRestController {
 		// validacion logica
 		if (posteo.getId() != null){
 
-			String mensaje=postServiceImpl.actializarPosteo(posteo);
+			String mensaje=postServiceImpl.actualizarPosteo(posteo);
 			return mensaje;
 		}
 		return "No se actualizara ningun usuario";

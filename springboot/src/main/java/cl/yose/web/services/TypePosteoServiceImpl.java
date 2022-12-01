@@ -36,5 +36,6 @@ public class TypePosteoServiceImpl implements TypePosteoServices {
 	public List<TypePosteo> listaTypePosteo() {
 			
 		return typePosteoRepository.findAll();
+	}
 
 }
