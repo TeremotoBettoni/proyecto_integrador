@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cl.yose.web.models.Categoria;
+
+import cl.yose.web.models.Usuario;
+
 import cl.yose.web.repositories.CategoriaRepository;
 @Service
 public class CategoriaServiceImpl implements CategoriaServices {
@@ -17,7 +20,7 @@ public class CategoriaServiceImpl implements CategoriaServices {
 	public Categoria guardarCategoria(Categoria categoria) {
 		return categoriaRepository.save(categoria);
 	}
-	
+
 	@Override
 	public String actualizarCategoria(Categoria categoria) {
 		Boolean existe = categoriaRepository.existsById(categoria.getId());

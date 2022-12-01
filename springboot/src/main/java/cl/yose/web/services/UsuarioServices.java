@@ -10,7 +10,8 @@ public interface UsuarioServices {
 		public Optional<Usuario> getUsuarioById(Long id);
 		//public Usuario guardarUsuario(Usuario usuario);
 		public String eliminarUsuario(Long id);
-		public String actializarUsuario(Usuario usuario);
+		public String actualizarUsuario(Usuario usuario);
+
 		public Usuario obtenerDatosUsuario(Long id);
 		public List<Usuario> listaUsuarios();
 }

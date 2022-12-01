@@ -34,9 +34,6 @@ public class TypePosteo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
-	private Long Id;
-=======
 	private Long id;
 	
 	@NotNull
@@ -44,7 +41,6 @@ public class TypePosteo {
 	
 	@OneToMany(mappedBy = "typePosteo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Posteo> posteos;
->>>>>>> MariaT
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -52,26 +48,7 @@ public class TypePosteo {
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
-<<<<<<< HEAD
 
-	public TypePosteo() {
-		super();
-	}
-
-
-	public Long getId() {
-		return Id;
-	}
-
-
-	public void setId(Long id) {
-		Id = id;
-	}
-
-
-=======
-	
->>>>>>> MariaT
 	// atributos de control
 	@PrePersist
 	protected void onCreate(){

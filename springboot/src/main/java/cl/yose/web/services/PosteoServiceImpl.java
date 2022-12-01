@@ -31,22 +31,26 @@ public class PosteoServiceImpl implements PosteoService {
 
 		existe = posteoRepository.existsById(id);
 		if (existe) {
-			return "Usuario no eliminado";
+
+			return "Publicacion no eliminada";
 		}
 
-		return "El usuario fue eliminado";
+		return "Se ha eliminado tu publicacion";
 	}
 
 	@Override
-	public String actializarPosteo(Posteo posteo) {
+	public String actualizarPosteo(Posteo posteo) {
+
 		Boolean existe = posteoRepository.existsById(posteo.getId());
 		// validion si existe en base de datos
 		if (existe) {
 			posteoRepository.save(posteo);
-			return "Usuario actualizado con exito";
+
+			return "Publicacion actualizada con exito";
 		}
 
-		return "Usuario no actualizado";
+		return "Publicacion no actualizada";
+
 	}
 	
 	@Override
